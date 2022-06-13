@@ -51,6 +51,7 @@ import com.jwtauth.web.repo.Userresultrepo;
 import com.jwtauth.web.repo.Usersemesterrepo;
 import com.jwtauth.web.Services.CustomUserDetailService;
 import com.jwtauth.web.repo.Messagerepo;
+import com.jwtauth.web.model.Editcourse;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -824,6 +825,28 @@ public ResponseEntity<String> deletestudent(@PathVariable ("id") int id){
 	return ResponseEntity.ok().body("data deleted");
 	
 }
+
+@PostMapping("/Editcourse")
+
+public ResponseEntity<String> Editcourse(@RequestBody Editcourse ecourse){
+	
+	Courses course=this.courserepository.findCourseById(ecourse.getCid());
+	
+	
+	course.setCoursename(ecourse.getCoursename());
+	course.setCoursetructure(ecourse.getCoursestructure());
+	//for(int i=0;i<course.getSemesters().size();i++) {
+	//	Semesters sem=course.getSemesters().get(i);
+		//ecourse.get
+	//}
+	
+	course.getSemesters().get(0).setSemestercontent(ecourse.getSemestercontent1());
+	course.getSemesters().get(1).setSemestercontent(ecourse.getSemestercontent2());
+	
+this.courserepository.save(course);
+return ResponseEntity.ok().body("success");
+}
+
 
 
 }

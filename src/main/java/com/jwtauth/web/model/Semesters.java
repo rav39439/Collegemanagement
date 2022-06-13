@@ -30,7 +30,10 @@ public class Semesters {
 	private int seid;
 	
 private String Semesterpart;
-	@Column(columnDefinition = "TEXT")
+
+
+	@Column( length = 6000 )
+
    private String semestercontent;
 	
 	

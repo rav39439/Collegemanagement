@@ -28,11 +28,13 @@ public class Courses {
 	private int cid;
 	private String Coursename;
 	private String Courseduration;
-	private String Coursetructure;
+	
+	  @Column( length = 6000 )
+private String Coursetructure;
 	private int Coursefees;
 	
 	@Column(unique = false)
-	@OneToMany(mappedBy = "courses",cascade = CascadeType.ALL,orphanRemoval = true)
+	@OneToMany(mappedBy = "courses",cascade = {CascadeType.PERSIST,CascadeType.REMOVE},orphanRemoval = true)
 	 private List<Semesters> semesters=new ArrayList<>();
 	public int getCid() {
 		return cid;
