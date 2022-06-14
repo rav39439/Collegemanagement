@@ -726,6 +726,10 @@ public ResponseEntity<?> registerstudent(@RequestBody Totaluser user,Usersem myc
 	
 	
 	Usersem mynewcred=new Usersem();
+	
+	Usersem mynewsem=new Usersem();
+	Usersem mynewsemester=new Usersem();
+
 	User myuser=new User();
 	
 	int pin = random.nextInt(99999);
@@ -757,17 +761,37 @@ public ResponseEntity<?> registerstudent(@RequestBody Totaluser user,Usersem myc
 	mynewcred.setMysemname(user.getAsemname());
 	mynewcred.setCredit(user.getCredits());
 	
+	mynewsem.setFeepaid(user.getFeepay1());
+	mynewsem.setNoofexam(user.getNoofexam());
+	mynewsem.setMysemname(user.getSemname3());
+	mynewsem.setCredit(user.getCredits());
+	
+	mynewsemester.setFeepaid(user.getFeepay2());
+	mynewsemester.setNoofexam(user.getNoofexam());
+	mynewsemester.setMysemname(user.getSemname4());
+	mynewsemester.setCredit(user.getCredits());
+	
+	
+	
 	
 	List<Usersem> usersm=Arrays.asList(mycredits,mynewcred);
 	//
 	//myuser.getUsersem().addAll(usersm);
-this.usersemrepo.save(mynewcred);
+/////////////////////////////confusion point ----------------this.usersemrepo.save(mynewcred);
 
 	//myuser.getUsersem().addAll(usersm);
 	myuser.getUsersem().add(mycredits);
+	myuser.getUsersem().add(mynewcred);
+	myuser.getUsersem().add(mynewsem);
+	myuser.getUsersem().add(mynewsemester);
+
+
 mycredits.setPersons(myuser);
 	
 	mynewcred.setPersons(myuser);
+	
+	mynewsem.setPersons(myuser);
+	mynewsemester.setPersons(myuser);
 	
 	this.userrepository.save(myuser);
 System.out.println(mycredits.getMysemname());
@@ -842,6 +866,9 @@ public ResponseEntity<String> Editcourse(@RequestBody Editcourse ecourse){
 	
 	course.getSemesters().get(0).setSemestercontent(ecourse.getSemestercontent1());
 	course.getSemesters().get(1).setSemestercontent(ecourse.getSemestercontent2());
+	course.getSemesters().get(2).setSemestercontent(ecourse.getSemestercontent3());
+	course.getSemesters().get(3).setSemestercontent(ecourse.getSemestercontent4());
+
 	
 this.courserepository.save(course);
 return ResponseEntity.ok().body("success");

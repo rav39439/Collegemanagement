@@ -26,7 +26,7 @@ public class Teachers {
 	private long id;
 	private String coursespec;
 	private String semesterspec;
-	private int workexp;
+	private String workexp;
 	private String teacherdegree;
 	
 	private String teacherskills;
@@ -63,10 +63,10 @@ public class Teachers {
 	public void setTeachername(String teachername) {
 		this.teachername = teachername;
 	}
-	public int getWorkexp() {
+	public String getWorkexp() {
 		return workexp;
 	}
-	public void setWorkexp(int workexp) {
+	public void setWorkexp(String workexp) {
 		this.workexp = workexp;
 	}
 	public String getTeacherdegree() {

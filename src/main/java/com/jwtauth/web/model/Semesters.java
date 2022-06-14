@@ -45,7 +45,7 @@ private String Semesterpart;
     private List<Subjects> subjects=new ArrayList<>();
 	
 	
-	private int semesterduration;
+	private String semesterduration;
 	
 	
 	
@@ -78,11 +78,11 @@ private String Semesterpart;
 		this.semestercontent = semestercontent;
 	}
 
-	public int getSemesterduration() {
+	public String getSemesterduration() {
 		return semesterduration;
 	}
 
-	public void setSemesterduration(int semesterduration) {
+	public void setSemesterduration(String semesterduration) {
 		this.semesterduration = semesterduration;
 	}
 

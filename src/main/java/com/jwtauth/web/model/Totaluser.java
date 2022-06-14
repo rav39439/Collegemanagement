@@ -21,9 +21,17 @@ public class Totaluser {
 	    
 	    private int credits;
 		private String semname;
+		private String semname4;
+		private String semname3;
+
 		private String asemname;
 		private int noofexam;
 		private String feepay;
+		
+		private String feepay1;
+		private String feepay2;
+
+
 		private String feepaysem;
 		public String getUsername() {
 			return username;
@@ -156,6 +164,30 @@ public class Totaluser {
 		}
 		public void setFeepaysem(String feepaysem) {
 			this.feepaysem = feepaysem;
+		}
+		public String getSemname4() {
+			return semname4;
+		}
+		public void setSemname4(String semname4) {
+			this.semname4 = semname4;
+		}
+		public String getSemname3() {
+			return semname3;
+		}
+		public void setSemname3(String semname3) {
+			this.semname3 = semname3;
+		}
+		public String getFeepay1() {
+			return feepay1;
+		}
+		public void setFeepay1(String feepay1) {
+			this.feepay1 = feepay1;
+		}
+		public String getFeepay2() {
+			return feepay2;
+		}
+		public void setFeepay2(String feepay2) {
+			this.feepay2 = feepay2;
 		}
 	    
 	
