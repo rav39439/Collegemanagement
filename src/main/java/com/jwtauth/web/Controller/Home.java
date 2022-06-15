@@ -8,17 +8,18 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
 public class Home {
 
-    @RequestMapping("/welcome")
+	@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
+
+    @RequestMapping("/")
     public String welcome() {
         String text = "this is private page ";
-        text+= "this page is not allowed to unauthenticated users";
         return text;
     }
 
    
-    @RequestMapping("/getusers")
-    public String getUser() {
-        return "{\"name\":\"Ravish\"}";
-    }
+//    @RequestMapping("/getusers")
+//    public String getUser() {
+//        return "{\"name\":\"Ravish\"}";
+//    }
 
 }
