@@ -90,7 +90,7 @@ public class JwtnewController {
 	    private Userresultrepo userresult;
 
 	    @RequestMapping(value = "/token", method = RequestMethod.POST)
-	    @CrossOrigin(origins="*")
+	    @CrossOrigin(origins="https://collegecoursemanagement.netlify.app/")
 	    public ResponseEntity<JwtResponse> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
 //<Map<String, String>>
 	        System.out.println("Inside Controller");
@@ -709,7 +709,7 @@ public ResponseEntity<List<Courses>> allcourses(){
 		
 	}
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
 
 @RequestMapping("/getmessages")
 public ResponseEntity<List<Messages>> allmessages(){
