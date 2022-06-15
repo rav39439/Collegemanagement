@@ -55,6 +55,8 @@ import com.jwtauth.web.model.Editcourse;
 
 @RestController
 @CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
+//@CrossOrigin(origins ="http://localhost:4200/")
+
 public class JwtnewController {
 	 @Autowired
 	    private AuthenticationManager authenticationManager;
@@ -90,8 +92,8 @@ public class JwtnewController {
 	    private Userresultrepo userresult;
 	    
 	    
-	    @CrossOrigin(origins="https://collegecoursemanagement.netlify.app/")
-
+	    @CrossOrigin(origins= "*")
+ 
 	    @RequestMapping(value = "/token", method = RequestMethod.POST)
 	    public ResponseEntity<JwtResponse> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
 //<Map<String, String>>
