@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
+@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
 public class Home {
 
     @RequestMapping("/welcome")
