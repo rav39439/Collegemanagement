@@ -54,7 +54,7 @@ import com.jwtauth.web.repo.Messagerepo;
 import com.jwtauth.web.model.Editcourse;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
 public class JwtnewController {
 	 @Autowired
 	    private AuthenticationManager authenticationManager;
@@ -690,7 +690,7 @@ this.teachrepo.save(myteach);
 return ResponseEntity.ok().body("success");
 }
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
 @RequestMapping("/allcourses")
 
 public ResponseEntity<List<Courses>> allcourses(){
@@ -719,7 +719,7 @@ return ResponseEntity.ok(allmessages);
 }
 
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
 
 @PostMapping("/register")
 public ResponseEntity<?> registerstudent(@RequestBody Totaluser user,Usersem mycredits ){
