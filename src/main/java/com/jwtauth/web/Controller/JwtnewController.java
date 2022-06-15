@@ -54,7 +54,7 @@ import com.jwtauth.web.repo.Messagerepo;
 import com.jwtauth.web.model.Editcourse;
 
 @RestController
-@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
+@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app")
 //@CrossOrigin(origins ="http://localhost:4200/")
 
 public class JwtnewController {
@@ -94,7 +94,7 @@ public class JwtnewController {
 	    
  
 	    @RequestMapping(value = "/token", method = RequestMethod.POST)
-	    @CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
+	    //@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
 
 	    public ResponseEntity<JwtResponse> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
 //<Map<String, String>>
@@ -136,21 +136,21 @@ public class JwtnewController {
 
 	    }
 	    
-	    @PostMapping("/newregister")
-	    public ResponseEntity<?> registeruser(@RequestBody User user){
-	    	
-			int pin = random.nextInt(99999);
-			user.setEnabled(true);
-			user.setPin(pin);
-			user.setRol("ROLE_USER");
-			this.userrepository.save(user);
-			
-		 return ResponseEntity.ok().body("user is successfully registered");
-			
-			
-	    	
-	    }
-	    
+//	    @PostMapping("/newregister")
+//	    public ResponseEntity<?> registeruser(@RequestBody User user){
+//	    	
+//			int pin = random.nextInt(99999);
+//			user.setEnabled(true);
+//			user.setPin(pin);
+//			user.setRol("ROLE_USER");
+//			this.userrepository.save(user);
+//			
+//		 return ResponseEntity.ok().body("user is successfully registered");
+//			
+//			
+//	    	
+//	    }
+//	    
 	    
 	    
 	    
