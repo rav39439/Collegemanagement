@@ -5,10 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
+@CrossOrigin(origins ="*")
 public class Home {
 
-	@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
 
     @RequestMapping("/")
     public String welcome() {

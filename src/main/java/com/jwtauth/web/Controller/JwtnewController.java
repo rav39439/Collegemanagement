@@ -54,8 +54,8 @@ import com.jwtauth.web.repo.Messagerepo;
 import com.jwtauth.web.model.Editcourse;
 
 @RestController
-@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app")
-//@CrossOrigin(origins ="http://localhost:4200/")
+//@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app")
+@CrossOrigin(origins ="http://localhost:4200/")
 
 public class JwtnewController {
 	 @Autowired
@@ -671,6 +671,9 @@ public ResponseEntity<String> updateuser( @RequestBody Myuser user){
 	myuser.setState(user.getState());
 	myuser.getUsersem().get(0).setFeepaid(user.getFeepay());
 	myuser.getUsersem().get(1).setFeepaid(user.getFeepaysem());
+	myuser.getUsersem().get(2).setFeepaid(user.getFeepay1());
+	myuser.getUsersem().get(3).setFeepaid(user.getFeepay2());
+
 
 	this.userrepository.save(myuser);
 	
@@ -727,7 +730,7 @@ return ResponseEntity.ok(allmessages);
 @CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
 
 @PostMapping("/register")
-public ResponseEntity<?> registerstudent(@RequestBody Totaluser user,Usersem mycredits ){
+public ResponseEntity<User> registerstudent(@RequestBody Totaluser user,Usersem mycredits ){
 	
 	
 	Usersem mynewcred=new Usersem();
@@ -803,7 +806,8 @@ System.out.println(mycredits.getMysemname());
 System.out.println(mynewcred.getMysemname());
 
 	
- return ResponseEntity.ok().body("user is successfully registered");
+ return ResponseEntity.ok().body(myuser);
+ //return ResponseEntity.ok("user is successfully registered!");
 	
 	
 	

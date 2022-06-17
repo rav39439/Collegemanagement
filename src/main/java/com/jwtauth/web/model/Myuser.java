@@ -13,6 +13,9 @@ public class Myuser {
 	    private String address;
 	    private String feepay;
 	    private String feepaysem;
+	    private String feepay1;
+	    private String feepay2;
+
 
 		public Long getId() {
 			return id;
@@ -75,6 +78,18 @@ public class Myuser {
 		}
 		public void setFeepaysem(String feepaysem) {
 			this.feepaysem = feepaysem;
+		}
+		public String getFeepay1() {
+			return feepay1;
+		}
+		public void setFeepay1(String feepay1) {
+			this.feepay1 = feepay1;
+		}
+		public String getFeepay2() {
+			return feepay2;
+		}
+		public void setFeepay2(String feepay2) {
+			this.feepay2 = feepay2;
 		}
 	    
 	
