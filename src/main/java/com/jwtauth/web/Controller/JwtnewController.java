@@ -54,8 +54,8 @@ import com.jwtauth.web.repo.Messagerepo;
 import com.jwtauth.web.model.Editcourse;
 
 @RestController
-@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app")
-//@CrossOrigin(origins ="http://localhost:4200/")
+//@CrossOrigin(origins ="https://collegecoursemanagement.netlify.app")
+@CrossOrigin(origins ="http://localhost:4200/")
 
 public class JwtnewController {
 	 @Autowired
@@ -299,25 +299,29 @@ public class JwtnewController {
 	   
 	    @DeleteMapping("/deleteteacher/{id}")
 	    
-	    public ResponseEntity<String> deleteteach(@PathVariable ("id") int id){
+	    public ResponseEntity<List<Teachers>> deleteteach(@PathVariable ("id") int id){
 	    	
 	    	
 	    	this.teachrepo.deleteById((long) id);
 	    	
-	    	return ResponseEntity.ok().body("data deleted");
+	    	
+	    	List<Teachers> teachers=this.teachrepo.findAll();
+	    	return ResponseEntity.ok(teachers);
+	    	//return ResponseEntity.ok().body("data deleted");
 	    	
 	    }
 	    
 	    
   @PostMapping("/deletecourse")
 	    
-	    public ResponseEntity<String> deletecourse(@RequestBody Courses id){
+	    public ResponseEntity<List<Courses>> deletecourse(@RequestBody Courses id){
 	    	
 	    	System.out.println("deleting the data ---------------------");
 	    	//this.courserepository.deleteById((long) id);
 	    	this.courserepository.delete(id);
-	    	
-	    	return ResponseEntity.ok().body("data deleted");
+	    	List<Courses> courses=this.courserepository.findAll();
+	    	return ResponseEntity.ok(courses);
+	    	//return ResponseEntity.ok().body("data deleted");
 	    	
 	    }
 	    
@@ -850,12 +854,13 @@ return ResponseEntity.ok().body(course);
 
 @DeleteMapping("/deletestudent/{id}")
 
-public ResponseEntity<String> deletestudent(@PathVariable ("id") int id){
+public ResponseEntity<List<User>> deletestudent(@PathVariable ("id") int id){
 	
 	
 	this.userrepository.deleteById((long) id);
-	
-	return ResponseEntity.ok().body("data deleted");
+	List<User> allusers=this.userrepository.findAll();
+	return ResponseEntity.ok(allusers);
+	//return ResponseEntity.ok().body("data deleted");
 	
 }
 
