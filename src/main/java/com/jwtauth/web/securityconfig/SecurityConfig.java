@@ -42,6 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          .antMatchers("/token").permitAll()
          .antMatchers(HttpMethod.OPTIONS).permitAll()
          .antMatchers("/register").permitAll()
+         .antMatchers("/allcourses").permitAll()
+         .antMatchers("/allteachers").permitAll()
+         .antMatchers("/allusers").permitAll()
+
          .anyRequest().authenticated()
          .and()
          .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
