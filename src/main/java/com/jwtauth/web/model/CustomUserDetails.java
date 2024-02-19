@@ -15,7 +15,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
-
+import java.util.Collection;
+import java.util.Collections;
 
 public class CustomUserDetails implements UserDetails {
 	
@@ -27,11 +28,15 @@ public class CustomUserDetails implements UserDetails {
 	    }
 
 	    @Override
-	    public Collection<? extends GrantedAuthority> getAuthorities() {
-
-	        SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(user.getRol());
-	        return List.of(simpleGrantedAuthority);
-	    }
+		public Collection<? extends GrantedAuthority> getAuthorities() {
+			if (user != null && user.getRol() != null && !user.getRol().isEmpty()) {
+				SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(user.getRol());
+				return Collections.singletonList(simpleGrantedAuthority);
+			} else {
+				// Return empty list if no roles are defined
+				return Collections.emptyList();
+			}
+		}
 
 	    @Override
 	    public String getPassword() {
