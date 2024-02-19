@@ -7,7 +7,7 @@
 FROM openjdk:11-jre-slim
 
 # Copy the JAR file into the container at /app
-COPY target/jwtauthdemo-0.0.1-SNAPSHOT.jar /app/
+COPY target/*.jar jwtauthdemo-0.0.1-SNAPSHOT.jar
 
 # Expose the port that the application runs on
 EXPOSE 8080
