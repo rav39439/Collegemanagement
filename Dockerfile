@@ -28,9 +28,8 @@ FROM openjdk:11-jre-slim
 # ARG JAR_FILE=target/*.jar
 
 # Copy the JAR file into the container at /app
-COPY --from=build /target/jwtauthdemo-0.0.1-SNAPSHOT.jar demo.jar
-
-# Expose the port that the application runs on
+WORKDIR /app
+COPY --from=build /app/target/*.jar jwtauthdemo-0.0.1-SNAPSHOT.jar
 EXPOSE 9000
 
 # Specify the command to run on container start
