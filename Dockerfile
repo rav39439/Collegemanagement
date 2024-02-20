@@ -34,4 +34,4 @@ COPY --from=build /target/jwtauthdemo-0.0.1-SNAPSHOT.jar demo.jar
 EXPOSE 9000
 
 # Specify the command to run on container start
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "jwtauthdemo-0.0.1-SNAPSHOT.jar"]
