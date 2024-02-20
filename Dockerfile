@@ -6,11 +6,15 @@
 
 FROM openjdk:11-jre-slim
 
+VOLUME /tmp
+
+ARG JAR_FILE
+
 # Copy the JAR file into the container at /app
 COPY target/*.jar jwtauthdemo-0.0.1-SNAPSHOT.jar
 
 # Expose the port that the application runs on
-EXPOSE 8080
+EXPOSE 9000
 
 # Specify the command to run on container start
 ENTRYPOINT ["java", "-jar", "jwtauthdemo-0.0.1-SNAPSHOT.jar"]

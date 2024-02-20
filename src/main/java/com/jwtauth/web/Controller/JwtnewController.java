@@ -53,8 +53,8 @@ import com.jwtauth.web.repo.Messagerepo;
 import com.jwtauth.web.model.Editcourse;
 
 @RestController
-@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app")
-//@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app")
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class JwtnewController {
 	@Autowired
@@ -679,8 +679,8 @@ public class JwtnewController {
 		return ResponseEntity.ok(allmessages);
 	}
 
-	 @CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
-	//@CrossOrigin(origins = "http://localhost:4200")
+	// @CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
+	@CrossOrigin(origins = "http://localhost:4200")
 
 	@PostMapping("/register")
 	public ResponseEntity<User> registerstudent(@RequestBody Totaluser user, Usersem mycredits) {
