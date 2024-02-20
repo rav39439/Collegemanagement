@@ -31,7 +31,7 @@ FROM openjdk:11-jre-slim
 COPY --from=build /target/jwtauthdemo-0.0.1-SNAPSHOT.jar demo.jar
 
 # Expose the port that the application runs on
-EXPOSE 8080
+EXPOSE 9000
 
 # Specify the command to run on container start
 ENTRYPOINT ["java", "-jar", "/app.jar"]
