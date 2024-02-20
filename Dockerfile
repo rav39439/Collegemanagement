@@ -1,6 +1,7 @@
-# FROM maven:3.6.3-jdk-11 AS build
-# COPY . .
-# RUN maven clean package -DskipTests
+FROM maven:3.6.3-jdk-11 AS build
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 # # Set the working directory in the container
 # WORKDIR /app
 
@@ -22,15 +23,15 @@
 
 FROM openjdk:11-jre-slim
 
-VOLUME /tmp
+# VOLUME /tmp
 
-ARG JAR_FILE=target/*.jar
+# ARG JAR_FILE=target/*.jar
 
 # Copy the JAR file into the container at /app
-COPY ${JAR_FILE} app.jar
+COPY --from=build /target/jwtauthdemo-0.0.1-SNAPSHOT.jar demo.jar
 
 # Expose the port that the application runs on
-EXPOSE 9000
+EXPOSE 8080
 
 # Specify the command to run on container start
 ENTRYPOINT ["java", "-jar", "/app.jar"]
