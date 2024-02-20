@@ -53,7 +53,7 @@ import com.jwtauth.web.repo.Messagerepo;
 import com.jwtauth.web.model.Editcourse;
 
 @RestController
-@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app")
+@CrossOrigin(origins = "https://collegemangementapi.onrender.com")
 //@CrossOrigin(origins = "http://localhost:4200")
 
 public class JwtnewController {
@@ -109,7 +109,7 @@ public class JwtnewController {
 		System.out.println("new Controller");
 		// fine area..
 		UserDetails userDetails = this.customUserDetailsService.loadUserByUsername(jwtRequest.getUsername());
-		System.out.println("the user daeails gkdhfhglkalgagj");
+		// System.out.println("the user daeails gkdhfhglkalgagj");
 
 		// System.out.println(jwtRequest.getUsername());
 		// System.out.println(jwtRequest.getPassword());
@@ -180,7 +180,7 @@ public class JwtnewController {
 		for (Semesters semester : acourse.getSemesters()) {
 			// semesters.add(semester);
 			if (semester.getSemesterpart().equals(teachers.getSemesterspec())) {
-				System.out.println("sdgaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+				// System.out.println("sdgaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
 				semester.getTeachers().add(teachers);
 				teachers.getSemesters().add(semester);
@@ -194,7 +194,7 @@ public class JwtnewController {
 		if (sem != null) {
 			this.semesterepo.save(sem);
 		} else {
-			System.out.println("sddddddddddddddddddddddddddddd");
+			// System.out.println("sddddddddddddddddddddddddddddd");
 
 		}
 
@@ -255,7 +255,7 @@ public class JwtnewController {
 			}
 		}
 
-		System.out.println("sddddddddddddddddddddddddddddd");
+		// System.out.println("sddddddddddddddddddddddddddddd");
 
 		// Semesters sem=this.semesterepo.findSemesterById(se.getOldsem());
 		// Semesters lsem=this.semesterepo.findSemesterById(se.getNewsem());
@@ -369,7 +369,7 @@ public class JwtnewController {
 							teach.getSemesters().add(msem);
 
 							this.semesterepo.save(msem);
-							System.out.println("this is newwwwwwwwwwwwww");
+							// System.out.println("this is newwwwwwwwwwwwww");
 						}
 					}
 				}
@@ -400,7 +400,7 @@ public class JwtnewController {
 
 		for (int i = 0; i < user.getUsersem().size(); i++) {
 			Usersem allsem = user.getUsersem().get(i);
-			System.out.println("this is newwwwwwwwwwwwww");
+			// System.out.println("this is newwwwwwwwwwwwww");
 
 			if (allsem.getMysemname().equals(userresult.getSemestername())) {
 
@@ -652,7 +652,7 @@ public class JwtnewController {
 		return ResponseEntity.ok().body("success");
 	}
 
-	@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
+	@CrossOrigin(origins = "https://collegemangementapi.onrender.com/")
 	@RequestMapping("/allcourses")
 
 	public ResponseEntity<List<Courses>> allcourses() {
@@ -670,7 +670,7 @@ public class JwtnewController {
 
 	}
 
-	@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
+	@CrossOrigin(origins = "https://collegemangementapi.onrender.com/")
 
 	@RequestMapping("/getmessages")
 	public ResponseEntity<List<Messages>> allmessages() {
@@ -679,7 +679,7 @@ public class JwtnewController {
 		return ResponseEntity.ok(allmessages);
 	}
 
-	 @CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
+	 @CrossOrigin(origins = "https://collegemangementapi.onrender.com/")
 	//@CrossOrigin(origins = "http://localhost:4200")
 
 	@PostMapping("/register")
