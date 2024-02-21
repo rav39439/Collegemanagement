@@ -53,7 +53,7 @@ import com.jwtauth.web.repo.Messagerepo;
 import com.jwtauth.web.model.Editcourse;
 
 @RestController
-@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
+@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app")
 //@CrossOrigin(origins = "http://localhost:4200")
 
 public class JwtnewController {
@@ -90,7 +90,8 @@ public class JwtnewController {
 	private Userresultrepo userresult;
 
 	@RequestMapping(value = "/token", method = RequestMethod.POST)
- @CrossOrigin(origins ="https://collegecoursemanagement.netlify.app/")
+ @CrossOrigin(origins ="https://collegecoursemanagement.netlify.app")
+	//@CrossOrigin(origins = "http://localhost:4200")
 
 	public ResponseEntity<JwtResponse> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
 		// <Map<String, String>>
@@ -297,7 +298,7 @@ public class JwtnewController {
 
 	public ResponseEntity<List<Courses>> deletecourse(@RequestBody Courses id) {
 
-		System.out.println("deleting the data ---------------------");
+		// System.out.println("deleting the data ---------------------");
 		// this.courserepository.deleteById((long) id);
 		this.courserepository.delete(id);
 		List<Courses> courses = this.courserepository.findAll();
@@ -319,7 +320,7 @@ public class JwtnewController {
 			// Semesters sem=this.semesterepo.findSemesterById(temp);
 			for (int i = 0; i < sems.getSem().size(); i++) {
 
-				System.out.println("this is newwwwwwwwwwwwww");
+				// System.out.println("this is newwwwwwwwwwwwww");
 
 				String semname = sems.getSem().get(i);
 				if (semname != null) {
@@ -652,7 +653,7 @@ public class JwtnewController {
 		return ResponseEntity.ok().body("success");
 	}
 
-	@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
+	@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app")
 	@RequestMapping("/allcourses")
 
 	public ResponseEntity<List<Courses>> allcourses() {
@@ -670,7 +671,8 @@ public class JwtnewController {
 
 	}
 
-	@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
+ @CrossOrigin(origins = "https://collegecoursemanagement.netlify.app")
+	//@CrossOrigin(origins = "http://localhost:4200")
 
 	@RequestMapping("/getmessages")
 	public ResponseEntity<List<Messages>> allmessages() {
@@ -679,8 +681,8 @@ public class JwtnewController {
 		return ResponseEntity.ok(allmessages);
 	}
 
-	 @CrossOrigin(origins = "https://collegecoursemanagement.netlify.app/")
-	//@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://collegecoursemanagement.netlify.app")
+	// @CrossOrigin(origins = "http://localhost:4200")
 
 	@PostMapping("/register")
 	public ResponseEntity<User> registerstudent(@RequestBody Totaluser user, Usersem mycredits) {
