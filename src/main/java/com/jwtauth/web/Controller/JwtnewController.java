@@ -15,11 +15,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import com.jwtauth.web.helper.JwtUtil;
@@ -54,6 +49,7 @@ import com.jwtauth.web.model.Editcourse;
 
 @RestController
 @CrossOrigin(origins = "https://collegecoursemanagement.netlify.app")
+
 //@CrossOrigin(origins = "http://localhost:4200")
 
 public class JwtnewController {
